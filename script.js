@@ -1,16 +1,16 @@
 function game() {
     let x = 0;
     while (x <= 4) {
-        const playerSelection =  prompt("What's your choice?").toLowerCase(); //Receive insensitive character input from player
-        const computerSelection = computerPlay(); //Call random computer choices
+        const playerSelection =  prompt("What's your choice?").toLowerCase(); //Receive a character insensitive input from player
+        const computerSelection = computerPlay();
 
         function computerPlay() {
-            const choices = ['rock', 'paper', 'scissors']; //Array of choices
+            const choices = ['rock', 'paper', 'scissors'];
             randomNum = Math.floor(Math.random() * choices.length); //Generate a random number
-            return choices[randomNum]; //Select a random item from the array
+            return choices[randomNum];
         }
 
-        function playRound(playerSelection, computerSelection) { //Check to see if which player is the winner, return the result message
+        function playRound(playerSelection, computerSelection) { //Check to see which player is the winner, return the result message
             if (playerSelection == 'rock' && computerSelection == 'paper') {
                 return "You lose! Paper beats rock!";
             }
@@ -37,7 +37,7 @@ function game() {
             }
         }
         x += 1;
-        console.log("Round " + x + " Result: " + playRound(playerSelection, computerSelection)); //Print the result in the console each round
+        console.log("Round " + x + " Result: " + playRound(playerSelection, computerSelection)); //Print the result in the console for each round
     }
-    console.log("Thank you for playing!"); //Post message to the player
+    console.log("Thank you for playing!");
 }
