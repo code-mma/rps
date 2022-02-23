@@ -31,11 +31,20 @@ function playRound(playerSelection, computerSelection) { //Check to see which pl
     }
 }      
 
+const resultsPanel = document.querySelector('#results-panel');
+
+function showResults(result) {
+    const createPara = document.createElement('p');
+    createPara.textContent = result;
+    createPara.classList.add('resultsPara');
+    resultsPanel.appendChild(createPara);
+}
+
 function choosePlay() {
     const choiceButtons = document.querySelectorAll('.choiceButtons');
     choiceButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            console.log(playRound(button.id, computerChoice()));
+            showResults(playRound(button.id, computerChoice()));
         });
     });  
 }
@@ -45,19 +54,25 @@ const startButton = document.querySelector('#start-button');
 startButton.addEventListener('click', () => {
     const startPanel = document.getElementById('start-panel');
     const choicesArray = ['Rock', 'Paper', 'Scissors'];
-    
+    $(startPanel).hide('fade',300);;
+
+    const choicesPanel = document.querySelector('#choices-panel');
+    const createPara = document.createElement('p');
+    createPara.setAttribute('id','instruction');
+    createPara.textContent = "Select your weapon of choice below.";
+    $(createPara).show('fade',3000);
+    choicesPanel.appendChild(createPara);
+
     for (const choice of choicesArray) {
         const choicesPanel = document.querySelector('#choices-panel');
         const createButtons = document.createElement('button');
         createButtons.textContent = choice;
         createButtons.classList.add('choiceButtons');
         createButtons.setAttribute('id',choice.toLowerCase());
+        $(createButtons).show('fade',3000);
         choicesPanel.appendChild(createButtons);
     }
-
-    startPanel.remove();
     choosePlay();
-    
 });
 
 
