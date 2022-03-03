@@ -49,11 +49,38 @@ body {
     cursor: pointer;
 }
 
+#next-round {
+    width: 150px;
+    height: 50px;
+    font-size: large;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #206ec7;
+    margin: 10px;
+    color: white;
+}
+
+#next-round:hover {
+    width: 160px;
+    height: 60px;
+    font-size: large;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #206ec7;
+    margin: 10px;
+    color: white;
+    cursor: pointer;
+}
+
 #choices-panel button {
     margin: 5px 20px;
     width: 200px;
     height: 100px;
     font-size: x-large;
+}
+
+#choices-panel button:hover {
+    cursor: pointer;
 }
 
 footer {
